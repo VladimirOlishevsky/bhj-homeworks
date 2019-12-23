@@ -6,9 +6,20 @@ for (let i of action) {
 
     i.addEventListener('click', function abc(event) {
 
-        if (!(parent.querySelector('.menu_active')) && !(parent.querySelectorAll('.menu_active'))) {
+        if(document.querySelector('.menu_active')){
+            document.querySelector('.menu_active').classList.remove('menu_active')
+        } 
+        
+        if (!(parent.querySelector('.menu_active'))) {
             parent.querySelector('.menu_sub').classList.add('menu_active')
             event.preventDefault()
+        } 
+        
+        if(parent.querySelector('.menu_active')) {
+            parent.querySelector('.menu_sub').classList.remove('menu_active')
         }
+
+        
+        
     })
 }
