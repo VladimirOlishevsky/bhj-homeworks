@@ -1,10 +1,10 @@
-let more = document.querySelectorAll('.product__quantity-control_inc');
-let less = document.querySelectorAll('.product__quantity-control_dec');
+let more = document.getElementsByClassName('product__quantity-control_inc');
+let less = document.getElementsByClassName('product__quantity-control_dec');
 
-let quantity = document.querySelectorAll('.product__quantity-value');
-let cartAdd = document.querySelectorAll('.product__add');
+let quantity = document.getElementsByClassName('product__quantity-value');
+let cartAdd = document.getElementsByClassName('product__add');
 let cartProducts = document.querySelector('.cart__products');
-let product = document.querySelectorAll('.product');
+let product = document.getElementsByClassName('product');
 
 
 for (let i = 0; i < more.length; i++) {
@@ -22,6 +22,10 @@ for (let i = 0; i < more.length; i++) {
     })
 
     cartAdd[i].addEventListener('click', () => {
+
+        if(quantity[i].textContent === '0') {
+            return
+        }
 
         for (let n = 0; n < cartProducts.children.length; n++) {
 
