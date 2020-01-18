@@ -15,7 +15,7 @@ form.addEventListener('submit', function answer(e) {
     xhr.open('POST', 'https://netology-slow-rest.herokuapp.com/auth.php');
     xhr.addEventListener('readystatechange', function response(e) {
 
-        if ((xhr.readyState == 4 && xhr.status == 200)) {
+        if ((xhr.readyState === 4 && xhr.status === 200)) {
 
             let data = JSON.parse(xhr.responseText);
             let userId = document.getElementById('user_id');
@@ -31,14 +31,13 @@ form.addEventListener('submit', function answer(e) {
             if (data.success === false) {
                 signin.classList.remove('signin_active');
                 alert('Неверный логин/пароль');
+
                 signin.classList.add('signin_active');
                 for (let i = 0; i < inputFields.length; i++) {
                     inputFields[i].value = '';
                 }
             }
         }
-
-
     })
     xhr.send(formData);
     e.preventDefault();
